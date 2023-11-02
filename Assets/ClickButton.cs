@@ -36,4 +36,9 @@ public class ClickButton : MonoBehaviour
         texteForInfoPokemon.text = "Hp : " + statsForSalameche_hp + "\n" + "Dégat : " + statsForSalameche_degat + "\n" + "Or par pokémon : " + statsForSalameche_orParPoke + "\n" + "Xp par pokémon : " + statsForSalameche_xpParPoke;
     }
 
+    public void QuitterApplication()
+    {
+        Application.Quit();
+    }
+
 }
