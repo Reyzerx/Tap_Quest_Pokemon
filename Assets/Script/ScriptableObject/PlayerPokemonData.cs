@@ -9,14 +9,15 @@ public class PlayerPokemonData : ScriptableObject
 
     public Sprite sprite;
     public int hp;
+    public int hpMax;
 
-    public int damage;
+    public int degat;
     public int multiplicateurOrParPokemon;
     public int multiplicateurXpParPokemon;
 
 
     public int coutAugmentationHp;
-    public int coutAugmentationDamage;
+    public int coutAugmentationDegat;
     public int coutAugmentationMultiplicateurOrParPokemon;
     public int coutAugmentationMultiplicateurXpParPokemon;
 }

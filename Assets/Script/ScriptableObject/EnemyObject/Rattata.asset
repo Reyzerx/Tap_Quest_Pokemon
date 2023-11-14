@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d201a5fbb15b34c8f3af3adef44eff, type: 3}
+  m_Name: Rattata
+  m_EditorClassIdentifier: 
+  idName: Rattata
+  sprite: {fileID: -1924693468, guid: 2a6fe9a0f7792c74fab63f6d9552a1d1, type: 3}
+  hp: 15
+  hpMax: 15
+  degat: 2
+  orGiven: 12

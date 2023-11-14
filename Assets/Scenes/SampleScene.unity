@@ -420,9 +420,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_MaxValue: 10
+  m_WholeNumbers: 1
+  m_Value: 8
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1565,7 +1565,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.874, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2672,7 +2672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &829868533
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2857,9 +2857,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 1
   m_MinValue: 0
-  m_MaxValue: 1
-  m_WholeNumbers: 0
-  m_Value: 1
+  m_MaxValue: 10
+  m_WholeNumbers: 1
+  m_Value: 9
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3285,6 +3285,7 @@ MonoBehaviour:
   selectedPokemonXpRecuObjet: {fileID: 190700937}
   scriptableObject:
   - {fileID: 11400000, guid: e6ff78253c53f454bb90b527204c10e8, type: 2}
+  scriptGameCore: {fileID: 1466269654}
 --- !u!4 &1190830448
 Transform:
   m_ObjectHideFlags: 0
@@ -4352,6 +4353,57 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460320648}
   m_CullTransparentMesh: 1
+--- !u!1 &1466269652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1466269653}
+  - component: {fileID: 1466269654}
+  m_Layer: 0
+  m_Name: ScriptForGameCore
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1466269653
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466269652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1964395578}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1466269654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466269652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba24a90c2c8fba848887943a6d0c6022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentEnnemiIndex: 0
+  currentEnnemi: {fileID: 11400000, guid: 8b2036c07df0a414b9bd0f45e38c2e5e, type: 2}
+  ennemiObject: {fileID: 913263966}
+  currentPlayerPokemon: {fileID: 11400000, guid: e6ff78253c53f454bb90b527204c10e8, type: 2}
+  listEnnemiZone1:
+  - {fileID: 11400000, guid: 8b2036c07df0a414b9bd0f45e38c2e5e, type: 2}
+  - {fileID: 11400000, guid: 23fd0eaa084dc2742806d1fa000a5d1b, type: 2}
 --- !u!1 &1493090472
 GameObject:
   m_ObjectHideFlags: 0
@@ -5327,7 +5379,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1852114584}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1190830447}
+        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
+        m_MethodName: infligerDegat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1852114584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5731,8 +5795,8 @@ RectTransform:
   m_Father: {fileID: 1323070162}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.12599999, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5804,6 +5868,7 @@ Transform:
   m_Children:
   - {fileID: 1190830448}
   - {fileID: 1809408572}
+  - {fileID: 1466269653}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -15,10 +15,11 @@ MonoBehaviour:
   idName: Salameche
   sprite: {fileID: 556072593, guid: 2a6fe9a0f7792c74fab63f6d9552a1d1, type: 3}
   hp: 10
-  damage: 1
+  hpMax: 10
+  degat: 1
   multiplicateurOrParPokemon: 1
   multiplicateurXpParPokemon: 1
   coutAugmentationHp: 50
-  coutAugmentationDamage: 50
+  coutAugmentationDegat: 50
   coutAugmentationMultiplicateurOrParPokemon: 50
   coutAugmentationMultiplicateurXpParPokemon: 50
