@@ -7,6 +7,9 @@ public class PlayerPokemonData : ScriptableObject
 {
     public string idName;
 
+    public int xp;
+    public int pokeDollars;
+
     public Sprite sprite;
     public int hp;
     public int hpMax;

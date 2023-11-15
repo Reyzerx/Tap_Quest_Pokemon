@@ -33,6 +33,10 @@ public class GameCore : MonoBehaviour
     {
         foreach(EnnemiPokemonData currentEnnemiPokemon in listEnnemiZone1)
         {
+            currentEnnemiIndex = 0;
+            currentEnnemi = listEnnemiZone1[currentEnnemiIndex];
+            refreshUIForEnnemi();
+
             currentEnnemiPokemon.hp = currentEnnemiPokemon.hpMax;
         }
     }
@@ -50,10 +54,10 @@ public class GameCore : MonoBehaviour
     {
         currentEnnemiIndex++;
 
-        Debug.Log(currentEnnemiIndex);
-        Debug.Log(listEnnemiZone1.Length - 1);
         if(currentEnnemiIndex <= listEnnemiZone1.Length-1)
         {
+            currentPlayerPokemon.xp += currentEnnemi.xpGiven;
+
             currentEnnemi = listEnnemiZone1[currentEnnemiIndex];
             refreshUIForEnnemi();
         }

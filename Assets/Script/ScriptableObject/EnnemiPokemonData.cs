@@ -13,5 +13,5 @@ public class EnnemiPokemonData : ScriptableObject
 
     public int degat;
 
-    public int orGiven;
+    public int xpGiven;
 }

@@ -9,14 +9,16 @@ public class ClickButton : MonoBehaviour
 
     public Image spriteForInfoPokemon;
 
+    public TextMeshProUGUI playerStatsTexte;
+
+    //Affichage des differente stats du pokémon choisi
     public GameObject selectedPokemonHpObjet;
     public GameObject selectedPokemonDamageObjet;
     public GameObject selectedPokemonOrRecuObjet;
     public GameObject selectedPokemonXpRecuObjet;
 
-
-    public PlayerPokemonData[] scriptableObject;
-
+    //objet dans lequel il y a le text et les boutons d'augmentation de la selected stat
+    public GameObject panelAugmentationStats;
 
     //Script pour avoir les infos du GameCore
     public GameCore scriptGameCore;
@@ -49,30 +51,70 @@ public class ClickButton : MonoBehaviour
         }
     }
 
-    public void setAllInfoForSelectedPokemon(string idName)
+    public void setAllInfoForSelectedPokemon()
     {
-        PlayerPokemonData tmpPlayerPokemonData = null;
+        PlayerPokemonData tmpPlayerPokemonData = scriptGameCore.currentPlayerPokemon;
 
-        foreach(PlayerPokemonData currentPokemonData in scriptableObject)
-        {
-            if(currentPokemonData.idName == idName)
-            {
-                tmpPlayerPokemonData = currentPokemonData;
-            }
-        }
+        //foreach (PlayerPokemonData currentPokemonData in scriptableObject)
+        //{
+        //    if(currentPokemonData.idName == idName)
+        //    {
+        //        tmpPlayerPokemonData = currentPokemonData;
+        //    }
+        //}
 
         if(tmpPlayerPokemonData != null)
         {
             spriteForInfoPokemon.sprite = tmpPlayerPokemonData.sprite;
 
+            playerStatsTexte.text = "Xp : " + tmpPlayerPokemonData.xp.ToString();
+
             //Set des textes pour le pokemon selectionné
-            selectedPokemonHpObjet.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Hp : " + tmpPlayerPokemonData.hp.ToString() + "\n" + "Cost : " + tmpPlayerPokemonData.coutAugmentationHp.ToString();
-            selectedPokemonDamageObjet.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Dégats : " + tmpPlayerPokemonData.degat.ToString() + "\n" + "Cost : " + tmpPlayerPokemonData.coutAugmentationDegat.ToString();
-            selectedPokemonOrRecuObjet.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Or recu : x" + tmpPlayerPokemonData.multiplicateurOrParPokemon.ToString() + "\n" + "Cost : " + tmpPlayerPokemonData.coutAugmentationMultiplicateurOrParPokemon.ToString();
-            selectedPokemonXpRecuObjet.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Xp recu : x" + tmpPlayerPokemonData.multiplicateurXpParPokemon.ToString() + "\n" + "Cost : " + tmpPlayerPokemonData.coutAugmentationMultiplicateurXpParPokemon.ToString();
+            selectedPokemonHpObjet.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Hp : " + tmpPlayerPokemonData.hp.ToString();
+            selectedPokemonDamageObjet.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Dégats : " + tmpPlayerPokemonData.degat.ToString();
+            selectedPokemonOrRecuObjet.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Pokédollars recu : x" + tmpPlayerPokemonData.multiplicateurOrParPokemon.ToString();
+            selectedPokemonXpRecuObjet.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Xp recu : x" + tmpPlayerPokemonData.multiplicateurXpParPokemon.ToString();
 
         }
 
+    }
+
+    public void SetInfoForSelectedAmelioration(string name)
+    {
+        string tmpStringForTexte = "";
+
+        if (name == "hp")
+        {
+            tmpStringForTexte = "HP : " + scriptGameCore.currentPlayerPokemon.hp.ToString() + " -> " + (scriptGameCore.currentPlayerPokemon.hp + 10).ToString();
+            tmpStringForTexte += "\n";
+            tmpStringForTexte += "COUT : " + scriptGameCore.currentPlayerPokemon.coutAugmentationHp.ToString() + " pokédollars";
+
+            panelAugmentationStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = tmpStringForTexte;
+        }
+        else if (name == "degat")
+        {
+            tmpStringForTexte = "DEGATS : " + scriptGameCore.currentPlayerPokemon.degat.ToString() + " -> " + (scriptGameCore.currentPlayerPokemon.degat + 10).ToString();
+            tmpStringForTexte += "\n";
+            tmpStringForTexte += "COUT : " + scriptGameCore.currentPlayerPokemon.coutAugmentationDegat.ToString() + " pokédollars";
+
+            panelAugmentationStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = tmpStringForTexte;
+        }
+        else if (name == "pokedollars")
+        {
+            tmpStringForTexte = "POKEDOLLARS RECU : " + scriptGameCore.currentPlayerPokemon.multiplicateurOrParPokemon.ToString() + " -> " + (scriptGameCore.currentPlayerPokemon.pokeDollars + 10).ToString();
+            tmpStringForTexte += "\n";
+            tmpStringForTexte += "COUT : " + scriptGameCore.currentPlayerPokemon.coutAugmentationMultiplicateurOrParPokemon.ToString() + " pokédollars";
+
+            panelAugmentationStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = tmpStringForTexte;
+        }
+        else if (name == "xp")
+        {
+            tmpStringForTexte = "XP RECU : " + scriptGameCore.currentPlayerPokemon.multiplicateurXpParPokemon.ToString() + " -> " + (scriptGameCore.currentPlayerPokemon.xp + 10).ToString();
+            tmpStringForTexte += "\n";
+            tmpStringForTexte += "COUT : " + scriptGameCore.currentPlayerPokemon.coutAugmentationMultiplicateurXpParPokemon.ToString() + " pokédollars";
+
+            panelAugmentationStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = tmpStringForTexte;
+        }
     }
 
     public void QuitterApplication()

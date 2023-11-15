@@ -17,4 +17,4 @@ MonoBehaviour:
   hp: 10
   hpMax: 10
   degat: 1
-  orGiven: 5
+  xpGiven: 250
