@@ -61,13 +61,16 @@ public class ClickButton : MonoBehaviour
 
     }
 
-    public void SetInfoForSelectedAmelioration(string name)
+    public void SetSelectedAmelioration(string name)
+    {
+        scriptGameCore.selectedAmelioration = name;
+    }
+
+    public void SetInfoForSelectedAmelioration()
     {
         string tmpStringForTexte = "";
 
-        scriptGameCore.selectedStatsToUp = name;
-
-        if (name == "hp")
+        if (scriptGameCore.selectedAmelioration == "hp")
         {
             if(scriptGameCore.currentPlayerPokemon.xp < scriptGameCore.currentPlayerPokemon.coutAugmentationHp)
             {
@@ -89,7 +92,7 @@ public class ClickButton : MonoBehaviour
 
             
         }
-        else if (name == "degat")
+        else if (scriptGameCore.selectedAmelioration == "degat")
         {
             if (scriptGameCore.currentPlayerPokemon.xp < scriptGameCore.currentPlayerPokemon.coutAugmentationDegat)
             {
@@ -110,7 +113,7 @@ public class ClickButton : MonoBehaviour
             }
 
         }
-        else if (name == "pokedollars")
+        else if (scriptGameCore.selectedAmelioration == "pokedollars")
         {
             if (scriptGameCore.currentPlayerPokemon.xp < scriptGameCore.currentPlayerPokemon.coutAugmentationMultiplicateurOrParPokemon)
             {
@@ -131,7 +134,7 @@ public class ClickButton : MonoBehaviour
             }
 
         }
-        else if (name == "xp")
+        else if (scriptGameCore.selectedAmelioration == "xp")
         {
             if (scriptGameCore.currentPlayerPokemon.xp < scriptGameCore.currentPlayerPokemon.coutAugmentationMultiplicateurXpParPokemon)
             {
@@ -154,6 +157,11 @@ public class ClickButton : MonoBehaviour
 
         //met a jour le texte avec les différentes stats
         panelAugmentationStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = tmpStringForTexte;
+    }
+
+    public void RefreshInfoForSelectedAmelioration()
+    {
+
     }
 
     public void QuitterApplication()

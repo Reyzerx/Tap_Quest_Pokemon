@@ -17,7 +17,7 @@ public class GameCore : MonoBehaviour
 
 
     //La stat actuelle qu'on veut augmenter
-    public string selectedStatsToUp = "";
+    public string selectedAmelioration = "";
 
     //Temporaire
     public int augmentation = 10;
@@ -115,7 +115,7 @@ public class GameCore : MonoBehaviour
 
     public void AddStatsWithAgmentation()
     {
-        if(selectedStatsToUp == "hp")
+        if(selectedAmelioration == "hp")
         {
             if(currentPlayerPokemon.xp >= currentPlayerPokemon.coutAugmentationHp)
             {
@@ -126,7 +126,7 @@ public class GameCore : MonoBehaviour
                 currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationHp;
             }
         }
-        if (selectedStatsToUp == "degat")
+        if (selectedAmelioration == "degat")
         {
             if (currentPlayerPokemon.xp >= currentPlayerPokemon.coutAugmentationDegat)
             {
@@ -136,7 +136,7 @@ public class GameCore : MonoBehaviour
                 currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationDegat;
             }
         }
-        if (selectedStatsToUp == "pokedollars")
+        if (selectedAmelioration == "pokedollars")
         {
             if (currentPlayerPokemon.xp >= currentPlayerPokemon.coutAugmentationMultiplicateurOrParPokemon)
             {
@@ -146,7 +146,7 @@ public class GameCore : MonoBehaviour
                 currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationMultiplicateurOrParPokemon;
             }
         }
-        if (selectedStatsToUp == "xp")
+        if (selectedAmelioration == "xp")
         {
             if (currentPlayerPokemon.xp >= currentPlayerPokemon.coutAugmentationMultiplicateurXpParPokemon)
             {

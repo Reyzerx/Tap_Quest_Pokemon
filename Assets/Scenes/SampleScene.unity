@@ -1573,7 +1573,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1190830447}
         m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
         m_MethodName: SetInfoForSelectedAmelioration
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4608,8 +4608,20 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1190830447}
         m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
-        m_MethodName: SetInfoForSelectedAmelioration
+        m_MethodName: SetSelectedAmelioration
         m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: xp
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1190830447}
+        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
+        m_MethodName: SetInfoForSelectedAmelioration
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4899,8 +4911,20 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1190830447}
         m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
-        m_MethodName: SetInfoForSelectedAmelioration
+        m_MethodName: SetSelectedAmelioration
         m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: pokedollars
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1190830447}
+        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
+        m_MethodName: SetInfoForSelectedAmelioration
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5525,7 +5549,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 94fc9ab424930ff40beaf4b2ce4d6ef6, type: 2}
   - {fileID: 11400000, guid: 7e7997aef99d0014daf5deb81a2862e2, type: 2}
   - {fileID: 11400000, guid: 0615226df6f541d45852c1e6cd3c2e09, type: 2}
-  selectedStatsToUp: 
+  selectedAmelioration: 
   augmentation: 10
 --- !u!1 &1471091947
 GameObject:
@@ -6150,8 +6174,20 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1190830447}
         m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
-        m_MethodName: SetInfoForSelectedAmelioration
+        m_MethodName: SetSelectedAmelioration
         m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hp
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1190830447}
+        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
+        m_MethodName: SetInfoForSelectedAmelioration
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6890,8 +6926,20 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1190830447}
         m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
-        m_MethodName: SetInfoForSelectedAmelioration
+        m_MethodName: SetSelectedAmelioration
         m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: degat
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1190830447}
+        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
+        m_MethodName: SetInfoForSelectedAmelioration
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
