@@ -941,18 +941,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1466269654}
-        m_TargetAssemblyTypeName: GameCore, Assembly-CSharp
-        m_MethodName: resetEnnemiStatsForRestartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1190830447}
         m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
         m_MethodName: setAllInfoForSelectedPokemon
@@ -1565,11 +1553,47 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 329237969}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1466269654}
+        m_TargetAssemblyTypeName: GameCore, Assembly-CSharp
+        m_MethodName: AddStatsWithAgmentation
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1190830447}
+        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
+        m_MethodName: SetInfoForSelectedAmelioration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hp
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1190830447}
+        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
+        m_MethodName: setAllInfoForSelectedPokemon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 940080557}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1580,7 +1604,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1815045651}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -1592,7 +1616,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &329237969
 MonoBehaviour:
@@ -2889,6 +2913,30 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1466269654}
+        m_TargetAssemblyTypeName: GameCore, Assembly-CSharp
+        m_MethodName: resetEnnemiStatsForRestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1466269654}
+        m_TargetAssemblyTypeName: GameCore, Assembly-CSharp
+        m_MethodName: ResetPlayerStatsForRestartGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4558,6 +4606,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1190830447}
+        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
+        m_MethodName: SetInfoForSelectedAmelioration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: xp
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1815045651}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -4580,18 +4640,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1190830447}
-        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
-        m_MethodName: SetInfoForSelectedAmelioration
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: xp
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1314383811
@@ -4849,6 +4897,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1190830447}
+        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
+        m_MethodName: SetInfoForSelectedAmelioration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: pokedollars
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1815045651}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -4871,18 +4931,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1190830447}
-        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
-        m_MethodName: SetInfoForSelectedAmelioration
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: pokedollars
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1318523138
@@ -5470,12 +5518,15 @@ MonoBehaviour:
   currentEnnemi: {fileID: 11400000, guid: 8b2036c07df0a414b9bd0f45e38c2e5e, type: 2}
   ennemiObject: {fileID: 913263966}
   currentPlayerPokemon: {fileID: 11400000, guid: e6ff78253c53f454bb90b527204c10e8, type: 2}
+  playerObject: {fileID: 583342848}
   listEnnemiZone1:
   - {fileID: 11400000, guid: 8b2036c07df0a414b9bd0f45e38c2e5e, type: 2}
   - {fileID: 11400000, guid: 23fd0eaa084dc2742806d1fa000a5d1b, type: 2}
   - {fileID: 11400000, guid: 94fc9ab424930ff40beaf4b2ce4d6ef6, type: 2}
   - {fileID: 11400000, guid: 7e7997aef99d0014daf5deb81a2862e2, type: 2}
   - {fileID: 11400000, guid: 0615226df6f541d45852c1e6cd3c2e09, type: 2}
+  selectedStatsToUp: 
+  augmentation: 10
 --- !u!1 &1471091947
 GameObject:
   m_ObjectHideFlags: 0
@@ -6097,6 +6148,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1190830447}
+        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
+        m_MethodName: SetInfoForSelectedAmelioration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: hp
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1815045651}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -6120,18 +6183,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1190830447}
-        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
-        m_MethodName: SetInfoForSelectedAmelioration
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: hp
-          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1662332575
 MonoBehaviour:
@@ -6837,6 +6888,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1190830447}
+        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
+        m_MethodName: SetInfoForSelectedAmelioration
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: degat
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 1815045651}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -6859,18 +6922,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1190830447}
-        m_TargetAssemblyTypeName: ClickButton, Assembly-CSharp
-        m_MethodName: SetInfoForSelectedAmelioration
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: degat
           m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1890053696
