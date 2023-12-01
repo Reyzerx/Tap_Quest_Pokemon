@@ -119,41 +119,41 @@ public class GameCore : MonoBehaviour
         {
             if(currentPlayerPokemon.xp >= currentPlayerPokemon.coutAugmentationHp)
             {
+                currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationHp;
+
                 currentPlayerPokemon.hp += augmentation;
                 currentPlayerPokemon.hpMax += augmentation;
                 currentPlayerPokemon.coutAugmentationHp += augmentation;
-
-                currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationHp;
             }
         }
         if (selectedAmelioration == "degat")
         {
             if (currentPlayerPokemon.xp >= currentPlayerPokemon.coutAugmentationDegat)
             {
+                currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationDegat;
+
                 currentPlayerPokemon.degat += augmentation;
                 currentPlayerPokemon.coutAugmentationDegat += augmentation;
-
-                currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationDegat;
             }
         }
         if (selectedAmelioration == "pokedollars")
         {
             if (currentPlayerPokemon.xp >= currentPlayerPokemon.coutAugmentationMultiplicateurOrParPokemon)
             {
+                currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationMultiplicateurOrParPokemon;
+
                 currentPlayerPokemon.multiplicateurOrParPokemon += augmentation;
                 currentPlayerPokemon.coutAugmentationMultiplicateurOrParPokemon += augmentation;
-
-                currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationMultiplicateurOrParPokemon;
             }
         }
         if (selectedAmelioration == "xp")
         {
             if (currentPlayerPokemon.xp >= currentPlayerPokemon.coutAugmentationMultiplicateurXpParPokemon)
             {
+                currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationMultiplicateurXpParPokemon;
+
                 currentPlayerPokemon.multiplicateurXpParPokemon += augmentation;
                 currentPlayerPokemon.coutAugmentationMultiplicateurXpParPokemon += augmentation;
-
-                currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationMultiplicateurXpParPokemon;
             }
         }
     }
