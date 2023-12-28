@@ -19,6 +19,9 @@ public class GameCore : MonoBehaviour
     //La stat actuelle qu'on veut augmenter
     public string selectedAmelioration = "";
 
+    // le bouton d'attaque
+    public Button boutonAttaque;
+
     //Temporaire
     public int augmentation = 10;
 
@@ -109,7 +112,7 @@ public class GameCore : MonoBehaviour
         }
         else
         {
-            ennemiObject.transform.GetChild(1).GetComponent<Slider>().value = currentEnnemi.hp;
+            playerObject.GetComponent<Player>().DebutPlayerAttaque(playerObject, boutonAttaque);
         }
     }
 
