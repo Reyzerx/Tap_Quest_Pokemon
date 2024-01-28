@@ -7,13 +7,11 @@ public class GameCore : MonoBehaviour
 {
     //Pour infliger les dégats avec le bouton attaque
     public int currentEnnemiIndex = 0;
-    public EnnemiPokemonData currentEnnemi;
-    public GameObject ennemiObject;
-
-    public PlayerPokemonData currentPlayerPokemon;
-    public GameObject playerObject;
-
+    public Enemy enemy;
     public EnnemiPokemonData[] listEnnemiZone1;
+
+
+    public Player player;
 
 
     //La stat actuelle qu'on veut augmenter
@@ -45,7 +43,7 @@ public class GameCore : MonoBehaviour
         foreach(EnnemiPokemonData currentEnnemiPokemon in listEnnemiZone1)
         {
             currentEnnemiIndex = 0;
-            currentEnnemi = listEnnemiZone1[currentEnnemiIndex];
+            enemy.currentEnemyData = listEnnemiZone1[currentEnnemiIndex];
             refreshUIForEnnemi();
 
             currentEnnemiPokemon.hp = currentEnnemiPokemon.hpMax;
@@ -54,25 +52,25 @@ public class GameCore : MonoBehaviour
     public void refreshUIForEnnemi()
     {
         //Set des éléments graphique por le premier ennemi 
-        ennemiObject.transform.GetChild(0).GetComponent<Image>().sprite = currentEnnemi.sprite;
+        enemy.enemyObject.transform.GetChild(0).GetComponent<Image>().sprite = enemy.Sprite;
 
-        ennemiObject.transform.GetChild(1).GetComponent<Slider>().maxValue = currentEnnemi.hpMax;
-        ennemiObject.transform.GetChild(1).GetComponent<Slider>().value = currentEnnemi.hp;
+        enemy.enemyObject.transform.GetChild(1).GetComponent<Slider>().maxValue = enemy.HpMax;
+        enemy.enemyObject.transform.GetChild(1).GetComponent<Slider>().value = enemy.Hp;
     }
 
     public void ResetPlayerStatsForRestartGame()
     {
 
         RefreshUIForPlayer();
-        currentPlayerPokemon.hp = currentPlayerPokemon.hpMax;
+        player.Hp = player.HpMax;
     }
     public void RefreshUIForPlayer()
     {
         //Set des éléments graphique por le premier ennemi 
-        playerObject.transform.GetChild(0).GetComponent<Image>().sprite = currentPlayerPokemon.sprite;
+        player.playerObject.transform.GetChild(0).GetComponent<Image>().sprite = player.Sprite;
 
-        playerObject.transform.GetChild(1).GetComponent<Slider>().maxValue = currentPlayerPokemon.hpMax;
-        playerObject.transform.GetChild(1).GetComponent<Slider>().value = currentPlayerPokemon.hp;
+        player.playerObject.transform.GetChild(1).GetComponent<Slider>().maxValue = player.HpMax;
+        player.playerObject.transform.GetChild(1).GetComponent<Slider>().value = player.Hp;
     }
 
     public void nextEnnemi()
@@ -81,9 +79,9 @@ public class GameCore : MonoBehaviour
 
         if(currentEnnemiIndex <= listEnnemiZone1.Length-1)
         {
-            currentPlayerPokemon.xp += currentEnnemi.xpGiven;
+            player.Xp += enemy.XpGiven;
 
-            currentEnnemi = listEnnemiZone1[currentEnnemiIndex];
+            enemy.currentEnemyData = listEnnemiZone1[currentEnnemiIndex];
             refreshUIForEnnemi();
         }
 
@@ -96,23 +94,29 @@ public class GameCore : MonoBehaviour
             resetEnnemiStatsForRestartGame();
             currentEnnemiIndex = 0;
 
-            currentEnnemi = listEnnemiZone1[currentEnnemiIndex];
+            enemy.currentEnemyData = listEnnemiZone1[currentEnnemiIndex];
             refreshUIForEnnemi();
         }
     }
 
-    public void InfligerDegatAEnnemi()
+    public void ClicBoutonAttaque()
+    {
+        player.DeclenchementAnimationAttaque();
+    }
+
+    public void DegatForAnimPlayerAttaque()
     {
         //Application des dégats
-        currentEnnemi.hp -= currentPlayerPokemon.degat;
+        enemy.Hp -= player.Degat;
+        //Mettre a jour la barre de vie de l'enemy
+        enemy.sliderHp.value = enemy.currentEnemyData.hp;
 
-        if (currentEnnemi.hp <= 0)
+        player.playerObject.GetComponent<Animator>().SetBool("isAttacking", false);
+
+        if (enemy.Hp <= 0)
         {
+            //Mettre une anim de mort du mob
             nextEnnemi();
-        }
-        else
-        {
-            playerObject.GetComponent<Player>().DebutPlayerAttaque(playerObject, boutonAttaque);
         }
     }
 
@@ -120,43 +124,43 @@ public class GameCore : MonoBehaviour
     {
         if(selectedAmelioration == "hp")
         {
-            if(currentPlayerPokemon.xp >= currentPlayerPokemon.coutAugmentationHp)
+            if(player.Xp >= player.CoutAugmentationHp)
             {
-                currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationHp;
+                player.Xp -= player.CoutAugmentationHp;
 
-                currentPlayerPokemon.hp += augmentation;
-                currentPlayerPokemon.hpMax += augmentation;
-                currentPlayerPokemon.coutAugmentationHp += augmentation;
+                player.Hp += augmentation;
+                player.HpMax += augmentation;
+                player.CoutAugmentationHp += augmentation;
             }
         }
         if (selectedAmelioration == "degat")
         {
-            if (currentPlayerPokemon.xp >= currentPlayerPokemon.coutAugmentationDegat)
+            if (player.Xp >= player.CoutAugmentationDegat)
             {
-                currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationDegat;
+                player.Xp -= player.CoutAugmentationDegat;
 
-                currentPlayerPokemon.degat += augmentation;
-                currentPlayerPokemon.coutAugmentationDegat += augmentation;
+                player.Degat += augmentation;
+                player.CoutAugmentationDegat += augmentation;
             }
         }
         if (selectedAmelioration == "pokedollars")
         {
-            if (currentPlayerPokemon.xp >= currentPlayerPokemon.coutAugmentationMultiplicateurOrParPokemon)
+            if (player.Xp >= player.CoutAugmentationMultiplicateurOrParPokemon)
             {
-                currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationMultiplicateurOrParPokemon;
+                player.Xp -= player.CoutAugmentationMultiplicateurOrParPokemon;
 
-                currentPlayerPokemon.multiplicateurOrParPokemon += augmentation;
-                currentPlayerPokemon.coutAugmentationMultiplicateurOrParPokemon += augmentation;
+                player.MultiplicateurOrParPokemon += augmentation;
+                player.CoutAugmentationMultiplicateurOrParPokemon += augmentation;
             }
         }
         if (selectedAmelioration == "xp")
         {
-            if (currentPlayerPokemon.xp >= currentPlayerPokemon.coutAugmentationMultiplicateurXpParPokemon)
+            if (player.Xp >= player.CoutAugmentationMultiplicateurXpParPokemon)
             {
-                currentPlayerPokemon.xp -= currentPlayerPokemon.coutAugmentationMultiplicateurXpParPokemon;
+                player.Xp -= player.CoutAugmentationMultiplicateurXpParPokemon;
 
-                currentPlayerPokemon.multiplicateurXpParPokemon += augmentation;
-                currentPlayerPokemon.coutAugmentationMultiplicateurXpParPokemon += augmentation;
+                player.MultiplicateurXpParPokemon += augmentation;
+                player.CoutAugmentationMultiplicateurXpParPokemon += augmentation;
             }
         }
     }

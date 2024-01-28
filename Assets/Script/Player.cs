@@ -5,18 +5,43 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    public void DebutPlayerAttaque(GameObject playerObject, Button boutonAttaque)
+    public PlayerPokemonData currentPokemonData;
+    public Button boutonAttaque;
+    //public Button boutonDefense;
+
+    //public Slider sliderHp
+
+    public GameObject playerObject;
+
+
+    private void Start()
     {
-        //Lancer animation
-        playerObject.GetComponent<Animator>().SetTrigger("isAttacking");
-        //Désactiver le bouton
-        boutonAttaque.enabled = false;
-        //ajouter un event a la fin de l'animation pour infliger les dégat
-        //Réactiver le bouton
+        
     }
-    public void FinPlayerAttaque(GameObject ennemiObject, EnnemiPokemonData currentEnnemi, Button boutonAttaque)
+
+    public int Xp { get => currentPokemonData.xp; set => currentPokemonData.xp = value; }
+    public int PokeDollars { get => currentPokemonData.pokeDollars; set => currentPokemonData.pokeDollars = value; }
+    public Sprite Sprite { get => currentPokemonData.sprite; set => currentPokemonData.sprite = value; }
+    public int Hp { get => currentPokemonData.hp; set => currentPokemonData.hp = value; }
+    public int HpMax { get => currentPokemonData.hpMax; set => currentPokemonData.hpMax = value; }
+    public int Degat { get => currentPokemonData.degat; set => currentPokemonData.degat = value; }
+    public int MultiplicateurOrParPokemon { get => currentPokemonData.multiplicateurOrParPokemon; set => currentPokemonData.multiplicateurOrParPokemon = value; }
+    public int MultiplicateurXpParPokemon { get => currentPokemonData.multiplicateurXpParPokemon; set => currentPokemonData.multiplicateurXpParPokemon = value; }
+    public int CoutAugmentationHp { get => currentPokemonData.coutAugmentationHp; set => currentPokemonData.coutAugmentationHp = value; }
+    public int CoutAugmentationDegat { get => currentPokemonData.coutAugmentationDegat; set => currentPokemonData.coutAugmentationDegat = value; }
+    public int CoutAugmentationMultiplicateurOrParPokemon { get => currentPokemonData.coutAugmentationMultiplicateurOrParPokemon; set => currentPokemonData.coutAugmentationMultiplicateurOrParPokemon = value; }
+    public int CoutAugmentationMultiplicateurXpParPokemon { get => currentPokemonData.coutAugmentationMultiplicateurXpParPokemon; set => currentPokemonData.coutAugmentationMultiplicateurXpParPokemon = value; }
+
+
+    public void DeclenchementAnimationAttaque()
     {
-        ennemiObject.transform.GetChild(1).GetComponent<Slider>().value = currentEnnemi.hp;
-        boutonAttaque.enabled = true;
+        playerObject.GetComponent<Animator>().SetBool("isAttacking", true);
+        boutonAttaque.interactable = false;
     }
+
+    public void FinAnimationAttaque()
+    {
+        boutonAttaque.interactable = true;
+    }
+
 }

@@ -23,6 +23,9 @@ public class ClickButton : MonoBehaviour
     //Script pour avoir les infos du GameCore
     public GameCore scriptGameCore;
 
+    //Objet Player
+    public Player player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,12 +41,12 @@ public class ClickButton : MonoBehaviour
     public void infligerDegat()
     {
         //Application des dégats
-        scriptGameCore.InfligerDegatAEnnemi();
+        scriptGameCore.ClicBoutonAttaque();
     }
 
     public void setAllInfoForSelectedPokemon()
     {
-        PlayerPokemonData tmpPlayerPokemonData = scriptGameCore.currentPlayerPokemon;
+        PlayerPokemonData tmpPlayerPokemonData = player.currentPokemonData;
 
         if(tmpPlayerPokemonData != null)
         {
@@ -72,7 +75,7 @@ public class ClickButton : MonoBehaviour
 
         if (scriptGameCore.selectedAmelioration == "hp")
         {
-            if(scriptGameCore.currentPlayerPokemon.xp < scriptGameCore.currentPlayerPokemon.coutAugmentationHp)
+            if(player.Xp < player.CoutAugmentationHp)
             {
                 tmpStringForTexte = "Xp insufisant pour augmentation";
 
@@ -82,9 +85,9 @@ public class ClickButton : MonoBehaviour
 
             else
             {
-                tmpStringForTexte = "HP : " + scriptGameCore.currentPlayerPokemon.hp.ToString() + " -> " + (scriptGameCore.currentPlayerPokemon.hp + scriptGameCore.augmentation).ToString();
+                tmpStringForTexte = "HP : " + player.Hp.ToString() + " -> " + (player.Hp + scriptGameCore.augmentation).ToString();
                 tmpStringForTexte += "\n";
-                tmpStringForTexte += "COUT : " + scriptGameCore.currentPlayerPokemon.coutAugmentationHp.ToString() + " xp";
+                tmpStringForTexte += "COUT : " + player.CoutAugmentationHp.ToString() + " xp";
 
                 panelAugmentationStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(255, 255, 255, 255);
                 panelAugmentationStats.transform.GetChild(1).GetComponent<Button>().interactable = true;
@@ -94,7 +97,7 @@ public class ClickButton : MonoBehaviour
         }
         else if (scriptGameCore.selectedAmelioration == "degat")
         {
-            if (scriptGameCore.currentPlayerPokemon.xp < scriptGameCore.currentPlayerPokemon.coutAugmentationDegat)
+            if (player.Xp < player.CoutAugmentationDegat)
             {
                 tmpStringForTexte = "Xp insufisant pour augmentation";
 
@@ -104,9 +107,9 @@ public class ClickButton : MonoBehaviour
 
             else
             {
-                tmpStringForTexte = "DEGATS : " + scriptGameCore.currentPlayerPokemon.degat.ToString() + " -> " + (scriptGameCore.currentPlayerPokemon.degat + scriptGameCore.augmentation).ToString();
+                tmpStringForTexte = "DEGATS : " + player.Degat.ToString() + " -> " + (player.Degat + scriptGameCore.augmentation).ToString();
                 tmpStringForTexte += "\n";
-                tmpStringForTexte += "COUT : " + scriptGameCore.currentPlayerPokemon.coutAugmentationDegat.ToString() + " xp";
+                tmpStringForTexte += "COUT : " + player.CoutAugmentationDegat.ToString() + " xp";
 
                 panelAugmentationStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(255, 255, 255, 255);
                 panelAugmentationStats.transform.GetChild(1).GetComponent<Button>().interactable = true;
@@ -115,7 +118,7 @@ public class ClickButton : MonoBehaviour
         }
         else if (scriptGameCore.selectedAmelioration == "pokedollars")
         {
-            if (scriptGameCore.currentPlayerPokemon.xp < scriptGameCore.currentPlayerPokemon.coutAugmentationMultiplicateurOrParPokemon)
+            if (player.Xp < player.CoutAugmentationMultiplicateurOrParPokemon)
             {
                 tmpStringForTexte = "Xp insufisant pour augmentation";
 
@@ -125,9 +128,9 @@ public class ClickButton : MonoBehaviour
 
             else
             {
-                tmpStringForTexte = "POKEDOLLARS RECU : " + scriptGameCore.currentPlayerPokemon.multiplicateurOrParPokemon.ToString() + " -> " + (scriptGameCore.currentPlayerPokemon.multiplicateurOrParPokemon + scriptGameCore.augmentation).ToString();
+                tmpStringForTexte = "POKEDOLLARS RECU : " + player.MultiplicateurOrParPokemon.ToString() + " -> " + (player.MultiplicateurOrParPokemon + scriptGameCore.augmentation).ToString();
                 tmpStringForTexte += "\n";
-                tmpStringForTexte += "COUT : " + scriptGameCore.currentPlayerPokemon.coutAugmentationMultiplicateurOrParPokemon.ToString() + " xp";
+                tmpStringForTexte += "COUT : " + player.CoutAugmentationMultiplicateurOrParPokemon.ToString() + " xp";
 
                 panelAugmentationStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(255, 255, 255, 255);
                 panelAugmentationStats.transform.GetChild(1).GetComponent<Button>().interactable = true;
@@ -136,7 +139,7 @@ public class ClickButton : MonoBehaviour
         }
         else if (scriptGameCore.selectedAmelioration == "xp")
         {
-            if (scriptGameCore.currentPlayerPokemon.xp < scriptGameCore.currentPlayerPokemon.coutAugmentationMultiplicateurXpParPokemon)
+            if (player.Xp < player.CoutAugmentationMultiplicateurXpParPokemon)
             {
                 tmpStringForTexte = "Xp insufisant pour augmentation";
 
@@ -145,9 +148,9 @@ public class ClickButton : MonoBehaviour
             }
             else
             {
-                tmpStringForTexte = "XP RECU : " + scriptGameCore.currentPlayerPokemon.multiplicateurXpParPokemon.ToString() + " -> " + (scriptGameCore.currentPlayerPokemon.multiplicateurXpParPokemon + scriptGameCore.augmentation).ToString();
+                tmpStringForTexte = "XP RECU : " + player.MultiplicateurXpParPokemon.ToString() + " -> " + (player.MultiplicateurXpParPokemon + scriptGameCore.augmentation).ToString();
                 tmpStringForTexte += "\n";
-                tmpStringForTexte += "COUT : " + scriptGameCore.currentPlayerPokemon.coutAugmentationMultiplicateurXpParPokemon.ToString() + " xp";
+                tmpStringForTexte += "COUT : " + player.CoutAugmentationMultiplicateurXpParPokemon.ToString() + " xp";
 
                 panelAugmentationStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = new Color(255, 255, 255, 255);
                 panelAugmentationStats.transform.GetChild(1).GetComponent<Button>().interactable = true;

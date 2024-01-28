@@ -23,4 +23,5 @@ public class PlayerPokemonData : ScriptableObject
     public int coutAugmentationDegat;
     public int coutAugmentationMultiplicateurOrParPokemon;
     public int coutAugmentationMultiplicateurXpParPokemon;
+
 }

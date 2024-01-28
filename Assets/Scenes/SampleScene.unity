@@ -3672,6 +3672,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 913263967}
+  - component: {fileID: 913263968}
   m_Layer: 5
   m_Name: EnemyObject
   m_TagString: Untagged
@@ -3701,6 +3702,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &913263968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913263966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9debc8feef666b04db0731e7566ebff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentEnemyData: {fileID: 11400000, guid: 8b2036c07df0a414b9bd0f45e38c2e5e, type: 2}
+  sliderHp: {fileID: 883258807}
+  enemyObject: {fileID: 913263966}
 --- !u!1 &940080557
 GameObject:
   m_ObjectHideFlags: 0
@@ -4124,6 +4140,7 @@ MonoBehaviour:
   selectedPokemonXpRecuObjet: {fileID: 190700937}
   panelAugmentationStats: {fileID: 1815045651}
   scriptGameCore: {fileID: 1466269654}
+  player: {fileID: 2123196160}
 --- !u!4 &1190830448
 Transform:
   m_ObjectHideFlags: 0
@@ -5582,7 +5599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1466269653
 Transform:
   m_ObjectHideFlags: 0
@@ -5611,16 +5628,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentEnnemiIndex: 0
-  currentEnnemi: {fileID: 11400000, guid: 8b2036c07df0a414b9bd0f45e38c2e5e, type: 2}
-  ennemiObject: {fileID: 913263966}
-  currentPlayerPokemon: {fileID: 11400000, guid: e6ff78253c53f454bb90b527204c10e8, type: 2}
-  playerObject: {fileID: 2123196158}
+  enemy: {fileID: 913263968}
   listEnnemiZone1:
   - {fileID: 11400000, guid: 8b2036c07df0a414b9bd0f45e38c2e5e, type: 2}
   - {fileID: 11400000, guid: 23fd0eaa084dc2742806d1fa000a5d1b, type: 2}
   - {fileID: 11400000, guid: 94fc9ab424930ff40beaf4b2ce4d6ef6, type: 2}
   - {fileID: 11400000, guid: 7e7997aef99d0014daf5deb81a2862e2, type: 2}
   - {fileID: 11400000, guid: 0615226df6f541d45852c1e6cd3c2e09, type: 2}
+  player: {fileID: 2123196160}
   selectedAmelioration: 
   boutonAttaque: {fileID: 1852114583}
   augmentation: 10
@@ -6948,7 +6963,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 21300000, guid: ced90846e855f844c8665df99bad30fa, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: ab1cc8e5de2edfd40ba50ecc55f8a08e, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -7650,6 +7665,7 @@ GameObject:
   - component: {fileID: 2123196159}
   - component: {fileID: 2123196161}
   - component: {fileID: 2123196160}
+  - component: {fileID: 2123196162}
   m_Layer: 5
   m_Name: PlayerObject
   m_TagString: Untagged
@@ -7691,6 +7707,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b59494b44a54448b4c095053d2bf20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentPokemonData: {fileID: 11400000, guid: e6ff78253c53f454bb90b527204c10e8, type: 2}
+  boutonAttaque: {fileID: 1852114583}
+  playerObject: {fileID: 2123196158}
 --- !u!95 &2123196161
 Animator:
   serializedVersion: 4
@@ -7711,6 +7730,30 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2123196162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123196158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba24a90c2c8fba848887943a6d0c6022, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentEnnemiIndex: 0
+  enemy: {fileID: 913263968}
+  listEnnemiZone1:
+  - {fileID: 11400000, guid: 8b2036c07df0a414b9bd0f45e38c2e5e, type: 2}
+  - {fileID: 11400000, guid: 23fd0eaa084dc2742806d1fa000a5d1b, type: 2}
+  - {fileID: 11400000, guid: 94fc9ab424930ff40beaf4b2ce4d6ef6, type: 2}
+  - {fileID: 11400000, guid: 7e7997aef99d0014daf5deb81a2862e2, type: 2}
+  - {fileID: 11400000, guid: 0615226df6f541d45852c1e6cd3c2e09, type: 2}
+  player: {fileID: 2123196160}
+  selectedAmelioration: 
+  boutonAttaque: {fileID: 1852114583}
+  augmentation: 10
 --- !u!1 &2133139745
 GameObject:
   m_ObjectHideFlags: 0
