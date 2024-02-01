@@ -26,6 +26,8 @@ public class ClickButton : MonoBehaviour
     //Objet Player
     public Player player;
 
+    public GameObject bouclierDefenseObject;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -162,9 +164,9 @@ public class ClickButton : MonoBehaviour
         panelAugmentationStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = tmpStringForTexte;
     }
 
-    public void RefreshInfoForSelectedAmelioration()
+    public void ClicDefenseBoutonPlayer()
     {
-
+        player.DeclenchementAnimationDefense(bouclierDefenseObject);
     }
 
     public void QuitterApplication()

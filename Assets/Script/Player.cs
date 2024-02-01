@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 {
     public PlayerPokemonData currentPokemonData;
     public Button boutonAttaque;
-    //public Button boutonDefense;
+    public Button boutonDefense;
 
     //public Slider sliderHp
 
@@ -37,19 +37,41 @@ public class Player : MonoBehaviour
     {
         playerObject.GetComponent<Animator>().SetBool("isAttacking", true);
         boutonAttaque.interactable = false;
+        boutonDefense.interactable = false;
     }
 
     public void FinAnimationAttaque()
     {
         boutonAttaque.interactable = true;
+        boutonDefense.interactable = true;
     }
 
     public void FinAnimationAttaqueIfReturnToMenu()
     {
         boutonAttaque.interactable = true;
+        boutonDefense.interactable = true;
         playerObject.GetComponent<Animator>().SetBool("isAttacking", false);
-        Debug.Log("déclenchement");
+
         playerObject.transform.localPosition = new Vector2(190, 0);
+    }
+
+    public void DeclenchementAnimationDefense(GameObject bouclierDefenseObject)
+    {
+        bouclierDefenseObject.GetComponent<Animator>().SetBool("isDefending", true);
+        boutonAttaque.interactable = false;
+        boutonDefense.interactable = false;
+
+    }
+
+    public void FinAnimationDefense(GameObject bouclierDefenseObject)
+    {
+        bouclierDefenseObject.GetComponent<Animator>().SetBool("isDefending", false);
+        
+        boutonAttaque.interactable = true;
+        boutonDefense.interactable = true;
+
+        Debug.Log("On est dans la fin anim defense >" + bouclierDefenseObject.name);
+
     }
 
 }
