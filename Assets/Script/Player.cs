@@ -44,4 +44,12 @@ public class Player : MonoBehaviour
         boutonAttaque.interactable = true;
     }
 
+    public void FinAnimationAttaqueIfReturnToMenu()
+    {
+        boutonAttaque.interactable = true;
+        playerObject.GetComponent<Animator>().SetBool("isAttacking", false);
+        Debug.Log("déclenchement");
+        playerObject.transform.localPosition = new Vector2(190, 0);
+    }
+
 }

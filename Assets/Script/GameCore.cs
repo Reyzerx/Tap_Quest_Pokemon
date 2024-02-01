@@ -23,8 +23,6 @@ public class GameCore : MonoBehaviour
     //Temporaire
     public int augmentation = 10;
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +33,7 @@ public class GameCore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void resetEnnemiStatsForRestartGame()
@@ -63,6 +61,7 @@ public class GameCore : MonoBehaviour
 
         RefreshUIForPlayer();
         player.Hp = player.HpMax;
+        player.FinAnimationAttaqueIfReturnToMenu();
     }
     public void RefreshUIForPlayer()
     {
