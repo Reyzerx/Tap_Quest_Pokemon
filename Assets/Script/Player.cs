@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
 
     public GameObject playerObject;
 
+    public AudioSource audioSourceAttaquePlayer;
+
 
     private void Start()
     {
@@ -69,9 +71,11 @@ public class Player : MonoBehaviour
         
         boutonAttaque.interactable = true;
         boutonDefense.interactable = true;
+    }
 
-        Debug.Log("On est dans la fin anim defense >" + bouclierDefenseObject.name);
-
+    public void PlayAttaqueMusic()
+    {
+        audioSourceAttaquePlayer.Play();
     }
 
 }

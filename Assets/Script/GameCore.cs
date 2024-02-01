@@ -104,13 +104,14 @@ public class GameCore : MonoBehaviour
     }
 
     public void DegatForAnimPlayerAttaque()
-    {
+    {        
         //Application des dégats
         enemy.Hp -= player.Degat;
         //Mettre a jour la barre de vie de l'enemy
         enemy.sliderHp.value = enemy.currentEnemyData.hp;
 
         player.playerObject.GetComponent<Animator>().SetBool("isAttacking", false);
+
 
         if (enemy.Hp <= 0)
         {
