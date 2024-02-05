@@ -3012,8 +3012,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6b4a60b01501444a53317e0a7f3d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerDataToSave: {fileID: 0}
-  enemyDataToSave: []
   playerDataToLoad: {fileID: 2123196160}
   enemyDataToLoad: {fileID: 913263968}
   gameDataToLoad: {fileID: 1466269654}
@@ -8740,9 +8738,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 283653264}
-        m_TargetAssemblyTypeName: SaveData, Assembly-CSharp
-        m_MethodName: LoadFromJson
+      - m_Target: {fileID: 709513005}
+        m_TargetAssemblyTypeName: SaveData2, Assembly-CSharp
+        m_MethodName: LoadData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

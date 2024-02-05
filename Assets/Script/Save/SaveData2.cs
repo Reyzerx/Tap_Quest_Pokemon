@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class SaveData2 : MonoBehaviour
 {
-    public PlayerPokemonData playerDataToSave;
-    public EnnemiPokemonData[] enemyDataToSave;
+    public static PlayerPokemonData playerDataToSave;
+    public static EnnemiPokemonData[] enemyDataToSave;
 
 
     [Header("Objet a Load")]
@@ -22,6 +22,6 @@ public class SaveData2 : MonoBehaviour
 
     public void LoadData()
     {
-
+        playerDataToLoad.currentPokemonData = playerDataToSave;
     }
 }
