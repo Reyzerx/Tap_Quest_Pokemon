@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EnnemiPokemonData", menuName = "Mes ScriptableObject/EnnemiPokemonData")]
+[System.Serializable]
 public class EnnemiPokemonData : ScriptableObject
 {
     public string idName;

@@ -6,7 +6,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class SaveData : MonoBehaviour
 {
     [SerializeField]
-    public static Data data = new Data();
+    public Data data;
+
+
+    public PlayerPokemonData playerDataToLoad;
 
     // Start is called before the first frame update
     void Start()
@@ -75,7 +78,8 @@ public class SaveData : MonoBehaviour
 
     public void SaveToJson()
     {
-        string saveData = JsonUtility.ToJson(data);
+        string saveData = SetAllData();
+        //string saveData = JsonUtility.ToJson(data);
         string filePath = Application.persistentDataPath + "/SaveData.json";
         Debug.Log(filePath);
         System.IO.File.WriteAllText(filePath, saveData);
@@ -88,6 +92,22 @@ public class SaveData : MonoBehaviour
 
         data = JsonUtility.FromJson<Data>(saveData);
     }
+
+    public string SetAllData()
+    {
+        string saveData = "";
+
+        saveData += JsonUtility.ToJson(data.playerDataToSave) + ',';
+
+        foreach(EnnemiPokemonData currentEnemyData in data.enemyDataToSave)
+        {
+            saveData += JsonUtility.ToJson(currentEnemyData) + ',';
+        }
+        //saveData += JsonUtility.ToJson(data.enemyDataToSave[0]);
+
+
+        return saveData;
+    }
 }
 
 [System.Serializable]
@@ -95,6 +115,9 @@ public class Data
 {
     //Player Save
     [SerializeField]
-    public Player player;
+    public PlayerPokemonData playerDataToSave;
+
+    [SerializeField]
+    public List<EnnemiPokemonData> enemyDataToSave;
 
 }
